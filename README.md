@@ -53,3 +53,16 @@
    <!ELEMENT foo ANY >
    <!ENTITY xxe SYSTEM  "file:///dev/random" >]>
 <foo>&xxe;</foo>
+
+
+
+
+
+
+
+
+```xml
+<myxml>
+   <someElement />  
+</myxml>
+```
