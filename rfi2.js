@@ -1,1 +1,1 @@
-<script>alert('Remote File Inclusion')</script>
+<script>alert('Remote File Inclusion')</script> 
