@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>alert(123)</script>
 <script>
 window.stop();
 </script>
