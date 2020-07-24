@@ -1,2 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+window.stop();
+</script>
+</head>
+<body>
 
-<svg></p><style><a id="</style><img src=1 onerror=alert(1)>">
+<p>The stop() method stops this text and the iframe from loading.</p>
+<p><b>Note:</b> This method does not work in Internet Explorer.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.11/purify.min.js"></script>
+
+<script>alert(123)</script>
+
+</body>
+</html>
